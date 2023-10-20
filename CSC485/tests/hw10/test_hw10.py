@@ -23,15 +23,24 @@ Output-
 
 class TestShouldReturnTrue(object):
 
-    def test_extact_match_apple(self):
+    def test_exact_match_apple(self):
         result = is_it_a_fruit('apple')
-        assert result == True
+        assert result
 
 
 class TestShouldReturnFalse(object):
 
     def test_case_difference(self):
         result = is_it_a_fruit('ApplE')
-        assert result == False
+        assert result
+
+    def test_case_empty_string(self):
+        result = is_it_a_fruit('')
+        assert result
+
+    def test_case_blank_space_between_char(self):
+        result = is_it_a_fruit('app le')
+        assert result
+
 
 
