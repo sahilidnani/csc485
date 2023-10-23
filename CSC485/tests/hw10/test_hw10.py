@@ -1,7 +1,6 @@
 import pytest
 from CSC485.Project.hw10.hw10 import is_it_a_fruit
 
-
 """Testable things
 Input-
     String
@@ -42,5 +41,14 @@ class TestShouldReturnFalse(object):
         result = is_it_a_fruit('app le')
         assert result
 
+    def test_case_integer_as_input(self):
+        result = is_it_a_fruit('47')
+        assert result
 
+    def test_case_non_alpha_numeric_char(self):
+        result = is_it_a_fruit('@$')
+        assert result
 
+    def test_case_multiple_strings_at_once(self):
+        result = is_it_a_fruit('apple', 'pear')
+        assert result
