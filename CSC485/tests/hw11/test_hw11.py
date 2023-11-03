@@ -1,23 +1,18 @@
 import pytest
 from CSC485.Project.hw11.hw11 import get_formal_name
 
+
 def test_valid_input():
     assert get_formal_name('apple') == 'Malus domestica'
     assert get_formal_name('banana') == 'Musa acuminata'
 
 def test_invalid_input():
-    assert get_formal_name('tomato')
-    if KeyError:
-        assert True
-    else:
-        False
+    with pytest.raises(KeyError):
+        get_formal_name('tomato')
 
 def test_missing_input():
-    assert get_formal_name('')
-    if TypeError:
-        assert False
-    else:
-        assert True
+        with pytest.raises(KeyError):
+             get_formal_name('')
 
 def test_valid_input_with_whitespace():
     assert get_formal_name('  banana  ') == 'Musa acuminata'
